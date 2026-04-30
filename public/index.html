@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Control</title>
+</head>
+<body>
+<h2>Pinterest Control</h2>
+<button onclick="g()">Generate</button>
+<button onclick="l()">Link</button>
+<button onclick="p()">Post</button>
+<button onclick="s()">Stats</button>
+<pre id="out"></pre>
+<script>
+const API="/api"
+async function g(){
+let r=await fetch(API+"/generate")
+out.innerText=JSON.stringify(await r.json(),null,2)
+}
+async function l(){
+let r=await fetch(API+"/link")
+out.innerText=JSON.stringify(await r.json(),null,2)
+}
+async function p(){
+let r=await fetch(API+"/post")
+out.innerText=JSON.stringify(await r.json(),null,2)
+}
+async function s(){
+let r=await fetch(API+"/stats")
+out.innerText=JSON.stringify(await r.json(),null,2)
+}
+</script>
+</body>
+</html>
